@@ -2,7 +2,7 @@
 
 include_once( "connectToDB.php" );
 
-$query = "SELECT cr.prod_id, p.prod_name, COUNT( cr.prod_id ) AS qty, SUM( p.prod_price ) as total_amount
+$query = "SELECT cr.prod_id, p.prod_name, COUNT( cr.prod_id ) AS qty, SUM( p.prod_price ) AS total_amount
           FROM consumer_report AS cr LEFT JOIN products AS p
           ON cr.prod_id = p.prod_id
           GROUP BY cr.prod_id;";
