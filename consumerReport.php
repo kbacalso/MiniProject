@@ -2,13 +2,23 @@
 
 include_once( "connectToDB.php" );
 
-$query = "SELECT cr.prod_id, p.prod_name, COUNT( cr.prod_id ) AS qty, SUM( p.prod_price ) AS total_amount
+// summary report
+$summaryQuery = "SELECT cr.prod_id, p.prod_name, COUNT( cr.prod_id ) AS qty, SUM( p.prod_price ) AS total_amount
           FROM consumer_report AS cr LEFT JOIN products AS p
           ON cr.prod_id = p.prod_id
           GROUP BY cr.prod_id;";
 
-$result = mysql_query( $query );
-$numRows = mysql_num_rows( $result );
+$summaryResult = mysql_query( $summaryQuery );
+$summaryRows = mysql_num_rows( $summaryResult );
+
+// detailed report
+$detailedQuery = "SELECT cr.prod_id, p.prod_name, cr.purchase_date
+                FROM consumer_report AS cr LEFT JOIN products AS p
+                ON cr.prod_id = p.prod_id
+                ORDER BY cr.prod_id";
+$detailedResult = mysql_query( $detailedQuery );
+$detailedRows = mysql_num_rows( $detailedResult );
+
 
 ?>
 
@@ -58,7 +68,7 @@ $numRows = mysql_num_rows( $result );
 
 <body>
 
-<h4 style="text-align: center">Report</h4>
+<h4 style="text-align: center">Summary Report</h4>
 
 <table>
     <tr>
@@ -70,13 +80,13 @@ $numRows = mysql_num_rows( $result );
 
     <?php
 
-    if ( $numRows ){
+    if ( $summaryRows ){
         $totalAmt = 0;
-        for( $i=0; $i < $numRows; $i++ ){
-            $id= mysql_result( $result, $i, "prod_id" );
-            $name= mysql_result( $result, $i, "prod_name" );
-            $qty= mysql_result( $result, $i, "qty" );
-            $total= mysql_result( $result, $i, "total_amount" );
+        for( $i=0; $i < $summaryRows; $i++ ){
+            $id= mysql_result( $summaryResult, $i, "prod_id" );
+            $name= mysql_result( $summaryResult, $i, "prod_name" );
+            $qty= mysql_result( $summaryResult, $i, "qty" );
+            $total= mysql_result( $summaryResult, $i, "total_amount" );
             $totalAmt += $total;
 
             echo "<tr>
@@ -103,6 +113,42 @@ $numRows = mysql_num_rows( $result );
 
     mysql_close();
     ?>
+</table>
+
+<h3 style="text-align: center;">Detailed Report</h3>
+
+<table>
+
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Purchase Date</th>
+    </tr>
+
+    <?php
+
+    if ( $detailedRows ){
+
+        for( $i=0; $i < $detailedRows; $i++ ){
+            $id = mysql_result( $detailedResult, $i, "prod_id" );
+            $name = mysql_result( $detailedResult, $i, "prod_name" );
+            $date = mysql_result( $detailedResult, $i, "purchase_date" );
+
+            echo "<tr>
+                    <td>$id</td>
+                    <td>$name</td>
+                    <td style='text-align: center'>$date</td>
+                  </tr>";
+        }
+
+    }else{
+        echo "<tr>
+                <td colspan='3' style='text-align: center;'>No Data to Display.</td>
+              </tr>";
+    }
+
+    ?>
+
 </table>
 
 </body>
