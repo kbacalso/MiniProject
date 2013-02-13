@@ -1,3 +1,32 @@
+<?php
+
+include_once( "connectToDB.php" );
+
+// ADD
+if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
+    echo "ADD PRODUCT!";
+
+    $hasParameters = isset($_POST["prod_name"]) && isset($_POST["prod_type"]) && isset($_POST["prod_price"]);
+
+    if ( $hasParameters ){
+
+        $prod_name = $_POST["prod_name"];
+        $prod_type = $_POST["prod_type"];
+        $prod_price = $_POST["prod_price"];
+
+        $addQuery = "INSERT INTO products
+                 VALUES ( 0, '$prod_type', '$prod_name', '$prod_price' );";
+        mysql_query( $addQuery );
+    }
+
+}
+
+// EDIT
+
+// DELETE
+
+?>
+
 <html>
 
 <head>
@@ -25,8 +54,6 @@
 
 
     <?php
-
-    include_once("connectToDB.php");
 
     $listQuery = "SELECT * FROM products;";
     $productsResult = mysql_query($listQuery);
