@@ -73,7 +73,7 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
             border-style: solid;
             border-width: 1px;
             border-color: green;
-            margin: 0;
+            vertical-align: middle;
         }
 
         td
@@ -81,9 +81,8 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
             border-style: solid;
             border-width: 1px;
             border-color: green;
-            margin: 0px;
-            padding-left: 5px;
-            padding-right: 5px;
+            padding: 3px;
+            vertical-align: middle;
         }
 
         .alignRight
@@ -129,17 +128,17 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
             $prod_price = mysql_result( $productsResult, $i, "prod_price" );
 
             echo "<tr>
-                    <td>$prod_id</td>
+                    <td style='text-align:center'>$prod_id</td>
                     <td>$prod_name</td>
                     <td>$prod_type</td>
-                    <td>". number_format( $prod_price, 2, '.', ',' ) ."</td>
-                    <td>
+                    <td class='alignRight'>". number_format( $prod_price, 2, '.', ',' ) ."</td>
+                    <td style='text-align:center;'>
                         <form action='editProductPage.php' method='GET'>
                             <input type='hidden' name='prod_id' value='$prod_id'/>
                             <input type='submit' value='Edit'/>
                         </form>
                     </td>
-                    <td>
+                    <td style='text-align:center'>
                         <form action='deleteProductPage.php' method='GET'>
                             <input type='hidden' name='prod_id' value='$prod_id'/>
                             <input type='submit' value='Delete'/>

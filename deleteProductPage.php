@@ -14,14 +14,15 @@ if ( isset( $_GET['prod_id'] ) )
 
 <body>
 
-Are you sure you want to delete this product?
+<h4>Are you sure you want to delete this product?</h4>
+
 <form action="listProductsPage.php" method="GET">
     <input type="hidden" name="prod_id" value="<?php echo $prod_id ?>">
     <input type="hidden" name="delete" value="YES">
     <input type="submit" value="YES"/>
 </form>
 
-<a href="listProductsPage.php">Back to Products Page</a>
+<a href="listProductsPage.php">Back</a>
 
 </body>
 

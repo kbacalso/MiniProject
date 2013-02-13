@@ -39,19 +39,41 @@ mysql_close();
 <form method="POST" action="listProductsPage.php">
     <input type="hidden" name="edit" value="YES"/>
     <input type="hidden" name="prod_id" value="<?php echo $prod_id ?>"/>
-    Product Name: <input type="text" name="prod_name" value='<?php echo $prod_name; ?>'/> <br/>
-    Product Type:
-    <select name="prod_type">
-        <option value=""></option>
-        <option value="pizzaSize" <?php echo isSelected( $prod_type, "pizzaSize" ) ?>>Pizza Size</option>
-        <option value="toppings" <?php echo isSelected( $prod_type, "toppings" ) ?>>Toppings</option>
-        <option value="drinks" <?php echo isSelected( $prod_type, "drinks" ) ?>>Drinks</option>
-    </select>
-    <br/>
-    Price: <input type="text" name="prod_price" value="<?php echo number_format( $prod_price, 2, '.', ',' ); ?>"/>
-    <br/>
 
-    <input type="submit" value="Edit Product"/>
+    <table>
+        <tr>
+            <td>Product Name:</td>
+            <td>
+                <input type="text" name="prod_name" value='<?php echo $prod_name; ?>'/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Product Type:</td>
+            <td>
+                <select name="prod_type">
+                    <option value=""></option>
+                    <option value="pizzaSize" <?php echo isSelected( $prod_type, "pizzaSize" ) ?>>Pizza Size</option>
+                    <option value="toppings" <?php echo isSelected( $prod_type, "toppings" ) ?>>Toppings</option>
+                    <option value="drinks" <?php echo isSelected( $prod_type, "drinks" ) ?>>Drinks</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" name="prod_price" value="<?php echo number_format( $prod_price, 2, '.', ',' ); ?>"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td style="text-align: right">
+                <input type="submit" value="Edit Product"/>
+            </td>
+        </tr>
+    </table>
 </form>
 
 </body>
