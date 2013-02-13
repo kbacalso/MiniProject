@@ -9,7 +9,6 @@ if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
     $hasParameters = isset($_POST["prod_name"]) && isset($_POST["prod_type"]) && isset($_POST["prod_price"]);
 
     if ( $hasParameters ){
-
         $prod_name = $_POST["prod_name"];
         $prod_type = $_POST["prod_type"];
         $prod_price = $_POST["prod_price"];
@@ -21,7 +20,29 @@ if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
 
 }
 
+
 // EDIT
+if ( isset( $_POST['edit']) && $_POST['edit'] == "YES" ){
+    echo "EDIT PRODUCT!";
+
+    // edit operation
+    $hasPOSTParameters = isset( $_POST['prod_id'] ) && isset( $_POST['prod_type'] ) &&
+        isset( $_POST['prod_name'] ) && isset( $_POST['prod_price'] );
+
+    if ( $hasPOSTParameters ){
+        $prod_id = $_POST['prod_id'];
+        $prod_type = $_POST['prod_type'];
+        $prod_name = $_POST['prod_name'];
+        $prod_price = $_POST['prod_price'];
+
+        $updateQUERY = "UPDATE products
+                    SET prod_type='$prod_type',
+                        prod_name='$prod_name',
+                        prod_price=$prod_price
+                    WHERE prod_id=$prod_id;";
+        mysql_query( $updateQUERY );
+    }
+}
 
 // DELETE
 

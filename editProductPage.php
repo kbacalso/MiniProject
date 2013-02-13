@@ -23,25 +23,6 @@ if ( isset( $_GET['prod_id'] ) ){
     }
 }
 
-// edit operation
-$hasPOSTParameters = isset( $_POST['prod_id'] ) && isset( $_POST['prod_type'] ) &&
-                     isset( $_POST['prod_name'] ) && isset( $_POST['prod_price'] );
-
-if ( $hasPOSTParameters ){
-
-    $prod_id = $_POST['prod_id'];
-    $prod_type = $_POST['prod_type'];
-    $prod_name = $_POST['prod_name'];
-    $prod_price = $_POST['prod_price'];
-
-    $updateQUERY = "UPDATE products
-                    SET prod_type='$prod_type',
-                        prod_name='$prod_name',
-                        prod_price=$prod_price
-                    WHERE prod_id=$prod_id;";
-    mysql_query( $updateQUERY );
-}
-
 mysql_close();
 ?>
 
@@ -55,7 +36,8 @@ mysql_close();
 
 <h3>Edit Product Form</h3>
 
-<form method="POST" action="editProductPage.php">
+<form method="POST" action="listProductsPage.php">
+    <input type="hidden" name="edit" value="YES"/>
     <input type="hidden" name="prod_id" value="<?php echo $prod_id ?>"/>
     Product Name: <input type="text" name="prod_name" value='<?php echo $prod_name; ?>'/> <br/>
     Product Type:
