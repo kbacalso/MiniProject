@@ -52,7 +52,10 @@
                         </form>
                     </td>
                     <td>
-                        <input type='button' value='Delete'/>
+                        <form action='deleteProductPage.php' method='GET'>
+                            <input type='hidden' name='prod_id' value='$prod_id'/>
+                            <input type='submit' value='Delete'/>
+                        </form>
                     </td>
                   </tr>";
         }

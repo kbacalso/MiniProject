@@ -1,7 +1,5 @@
 <?php
 
-echo var_dump( $_POST );
-
 $hasParameters = isset($_POST["prod_name"]) && isset($_POST["prod_type"]) && isset($_POST["prod_price"]);
 
 if ( $hasParameters ){
