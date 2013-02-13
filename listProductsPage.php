@@ -4,8 +4,6 @@ include_once( "connectToDB.php" );
 
 // ADD
 if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
-    echo "ADD PRODUCT!";
-
     $hasParameters = isset($_POST["prod_name"]) && isset($_POST["prod_type"]) && isset($_POST["prod_price"]);
 
     if ( $hasParameters ){
@@ -23,7 +21,6 @@ if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
 
 // EDIT
 if ( isset( $_POST['edit']) && $_POST['edit'] == "YES" ){
-    echo "EDIT PRODUCT!";
 
     // edit operation
     $hasPOSTParameters = isset( $_POST['prod_id'] ) && isset( $_POST['prod_type'] ) &&
