@@ -12,7 +12,7 @@ if ( isset( $_POST['add'] ) && $_POST['add'] == "YES" ){
         $prod_price = $_POST["prod_price"];
 
         $addQuery = "INSERT INTO products
-                 VALUES ( 0, '$prod_type', '$prod_name', '$prod_price' );";
+                     VALUES ( 0, '$prod_type', '$prod_name', '$prod_price' );";
         mysql_query( $addQuery );
     }
 
@@ -96,9 +96,9 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
 
 <body>
 
-<h3>Product Page</h3>
+<h3 style="text-align: center">Product Page</h3>
 
-<form action="addProductPage.php" method="GET">
+<form action="addProductPage.php" method="GET" style="text-align: center">
     <input type="submit" value="Add"/>
 </form>
 
