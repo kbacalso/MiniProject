@@ -45,6 +45,11 @@ if ( isset( $_POST['edit']) && $_POST['edit'] == "YES" ){
 }
 
 // DELETE
+if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
+    $prod_id = $_GET['prod_id'];
+    $deleteQuery = "DELETE FROM products WHERE prod_id=$prod_id";
+    mysql_query($deleteQuery);
+}
 
 ?>
 
@@ -52,6 +57,44 @@ if ( isset( $_POST['edit']) && $_POST['edit'] == "YES" ){
 
 <head>
     <title>Products Page</title>
+
+    <style>
+
+        table
+        {
+            margin: 10px;
+            padding: 10px;
+            width: 50%;
+            position: relative;
+            left: 25%;
+            right: 25%;
+            border-collapse: collapse;
+        }
+
+        th
+        {
+            border-style: solid;
+            border-width: 1px;
+            border-color: green;
+            margin: 0;
+        }
+
+        td
+        {
+            border-style: solid;
+            border-width: 1px;
+            border-color: green;
+            margin: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .alignRight
+        {
+            text-align: right;
+        }
+
+    </style>
 </head>
 
 <body>
