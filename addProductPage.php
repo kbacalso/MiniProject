@@ -15,6 +15,7 @@ if ( $hasParameters ){
     $addQuery = "INSERT INTO products
                  VALUES ( 0, '$prod_type', '$prod_name', '$prod_price' );";
     mysql_query( $addQuery );
+    mysql_close();
 }
 
 ?>

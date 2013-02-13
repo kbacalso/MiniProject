@@ -46,7 +46,10 @@
                     <td>$prod_type</td>
                     <td>". number_format( $prod_price, 2, '.', ',' ) ."</td>
                     <td>
-                        <input type='button' value='Edit'/>
+                        <form action='editProductPage.php' method='GET'>
+                            <input type='hidden' name='prod_id' value='$prod_id'/>
+                            <input type='submit' value='Edit'/>
+                        </form>
                     </td>
                     <td>
                         <input type='button' value='Delete'/>
@@ -58,7 +61,7 @@
         echo "<tr><td colspan='6'>No products added.</td></tr>";
     }
 
-
+    mysql_close();
     ?>
 
 
