@@ -1,5 +1,8 @@
 <?php
 
+require_once( "checkLogin.php" );
+require_once( "checkAdmin.php" );
+
 $prod_id = 0;
 if ( isset( $_GET['prod_id'] ) )
     $prod_id = $_GET['prod_id'];

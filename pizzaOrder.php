@@ -1,5 +1,7 @@
 <?php
 
+require_once( "checkLogin.php" );
+
 function recordProductPurchase( $parameterName, &$products )
 {
     $nowDate = date( "Y-m-d" );

@@ -1,5 +1,8 @@
 <?php
 
+require_once( "checkLogin.php" );
+require_once( "checkAdmin.php" );
+
 function isSelected( $prod_type, $option_val )
 {
     return ( $prod_type == $option_val )? "selected": "";

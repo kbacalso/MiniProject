@@ -1,5 +1,7 @@
 <?php
 
+require_once( "checkLogin.php" );
+require_once( "checkAdmin.php" );
 include_once( "connectToDB.php" );
 
 // summary report
@@ -26,44 +28,7 @@ $detailedRows = mysql_num_rows( $detailedResult );
 
 <head>
     <title>Consumer Report</title>
-
-    <style>
-
-        table
-        {
-            margin: 10px;
-            padding: 10px;
-            width: 50%;
-            position: relative;
-            left: 25%;
-            right: 25%;
-            border-collapse: collapse;
-        }
-
-        th
-        {
-            border-style: solid;
-            border-width: 1px;
-            border-color: green;
-            margin: 0;
-        }
-
-        td
-        {
-            border-style: solid;
-            border-width: 1px;
-            border-color: green;
-            margin: 0px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        .alignRight
-        {
-            text-align: right;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="table.css"/>
 </head>
 
 <body>

@@ -1,3 +1,10 @@
+<?php
+
+require_once( "checkLogin.php" );
+require_once( "checkAdmin.php" );
+
+?>
+
 <html>
 
 <head>

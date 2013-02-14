@@ -1,5 +1,7 @@
 <?php
 
+require_once( "checkLogin.php" );
+require_once( "checkAdmin.php" );
 include_once( "connectToDB.php" );
 
 // ADD
@@ -54,43 +56,7 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
 
 <head>
     <title>Products Page</title>
-
-    <style>
-
-        table
-        {
-            margin: 10px;
-            padding: 10px;
-            width: 50%;
-            position: relative;
-            left: 25%;
-            right: 25%;
-            border-collapse: collapse;
-        }
-
-        th
-        {
-            border-style: solid;
-            border-width: 1px;
-            border-color: green;
-            vertical-align: middle;
-        }
-
-        td
-        {
-            border-style: solid;
-            border-width: 1px;
-            border-color: green;
-            padding: 3px;
-            vertical-align: middle;
-        }
-
-        .alignRight
-        {
-            text-align: right;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="table.css"/>
 </head>
 
 <body>
