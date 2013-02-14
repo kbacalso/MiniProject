@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+if ( isset( $_SESSION['error'] ) ){
+    echo "<h4 align='center'>".$_SESSION['error_msg']."</h4>";
+    unset( $_SESSION['error'] );
+    unset( $_SESSION['error_msg'] );
+}
+
+?>
+
 <html>
 
 <head>
