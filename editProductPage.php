@@ -37,6 +37,8 @@ mysql_close();
 
 <body>
 
+<?php  require_once("logoutPage.php"); ?>
+
 <h3>Edit Product Form</h3>
 
 <form method="POST" action="listProductsPage.php">

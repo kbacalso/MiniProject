@@ -17,6 +17,8 @@ if ( isset( $_GET['prod_id'] ) )
 
 <body>
 
+<?php  require_once("logoutPage.php"); ?>
+
 <h4>Are you sure you want to delete this product?</h4>
 
 <form action="listProductsPage.php" method="GET">

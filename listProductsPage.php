@@ -61,6 +61,8 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
 
 <body>
 
+<?php  require_once("logoutPage.php"); ?>
+
 <h3 style="text-align: center">Product Page</h3>
 
 <form action="addProductPage.php" method="GET" style="text-align: center">
@@ -122,7 +124,6 @@ if ( isset($_GET['delete']) && $_GET['delete'] == "YES" ){
 
 
 </table>
-
 
 </body>
 

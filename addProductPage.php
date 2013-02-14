@@ -13,6 +13,8 @@ require_once( "checkAdmin.php" );
 
 <body>
 
+<?php  require_once("logoutPage.php"); ?>
+
 <h3>Add Product Form</h3>
 
 <form method="POST" action="listProductsPage.php">

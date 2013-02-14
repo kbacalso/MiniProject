@@ -11,10 +11,8 @@ if ( isset($_POST['userName']) && isset($_POST['password']) ){
     $num_rows = mysql_num_rows( $search_result );
 
     if ( $num_rows ){
-        if ( session_id() == '' )
-            session_start();
-
-        $_SESSION['username'] = $user_name;
+        session_start();
+        $_SESSION['logged_in'] = true;
 
         if ( $user_name == 'admin' ){
             $_SESSION['admin'] = true;

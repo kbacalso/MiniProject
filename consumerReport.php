@@ -33,6 +33,8 @@ $detailedRows = mysql_num_rows( $detailedResult );
 
 <body>
 
+<?php  require_once("logoutPage.php"); ?>
+
 <h4 style="text-align: center">Summary Report</h4>
 
 <table>

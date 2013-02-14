@@ -1,9 +1,6 @@
 <?php
 
-if ( session_id() == '' )
-    session_start();
-
-if ( !isset($_SESSION['admin']) )
+if ( session_id() && !isset($_SESSION['admin']) )
     header("location:loginPage.php");
 
 ?>

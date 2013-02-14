@@ -103,6 +103,7 @@ if ( $hasParameters ){
 	
 </head>
 
+<?php  require_once("logoutPage.php"); ?>
 
 <form action="pizzaOrder.php" method="POST">
 
